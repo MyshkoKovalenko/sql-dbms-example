@@ -10,3 +10,5 @@ The `triggers.sql` contains triggers that update order total amount when new ite
 The `test_script.sql` contains the test case script for all the functions, procedures, and triggers.
 
 The `answers.md` contains answers to the questions from homework assignment.
+
+The `explain_analyze_result_export.csv` is the output of `EXPLAIN ANALYZE`. SQL first conducts a sequential scan on the whole table `order_items` and filters them by `WHERE` clause. Next, it utilizes index to primary key of products table in order to find all the necessary values from products table by index referenced in `order_items.product_id`. In the end, the evaluated cost of execution is written as well as planning time and actual execution time.
