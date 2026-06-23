@@ -39,6 +39,7 @@ AS $$
 
     UPDATE products SET stock_quantity = stock_quantity - p_quantity
     WHERE
+        products.product_id = p_product_id AND
         p_order_id IN (SELECT o.order_id FROM orders o) AND
         p_product_id IN (SELECT p.product_id FROM products p) AND
         p_quantity <= (SELECT p.stock_quantity FROM products p WHERE p.product_id = p_product_id) AND
